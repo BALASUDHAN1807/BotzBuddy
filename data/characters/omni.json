@@ -1,0 +1,23 @@
+{
+  "id": "omni",
+  "name": "Omni",
+  "group": "C",
+  "status": "awaiting_concept_sheet",
+  "role": "explorer",
+  "facts": [],
+  "concepts": [],
+  "interestTags": [
+    "multiverse",
+    "space",
+    "all-round",
+    "cosmic"
+  ],
+  "emoji": "🔮",
+  "color": "#8E44AD",
+  "avatarUrl": null,
+  "productSlug": "omni",
+  "kitUrl": "https://store.funobotz.com",
+  "voiceStyle": "Mysterious, enthusiastic",
+  "voiceStyleNote": "voice style and emoji are team presentation choices, not Funobotz facts",
+  "source": "Official Funobotz Pack 2"
+}

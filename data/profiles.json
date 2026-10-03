@@ -1,0 +1,67 @@
+[
+  {
+    "id": "L-01",
+    "name": "Learner 01",
+    "age": 8,
+    "interests": ["light", "colour"],
+    "knowledge": "new",
+    "knownConcepts": [],
+    "shortMode": false,
+    "wantsDepth": false,
+    "explorer": false,
+    "language": "en",
+    "description": "Age 8, interests light/colour, first-time STEM learner"
+  },
+  {
+    "id": "L-02",
+    "name": "Learner 02",
+    "age": 11,
+    "interests": ["movement", "machines"],
+    "knowledge": "basics",
+    "knownConcepts": ["battery_energy"],
+    "shortMode": false,
+    "wantsDepth": false,
+    "explorer": false,
+    "language": "en",
+    "description": "Age 11, movement and machines, already knows basic battery connections"
+  },
+  {
+    "id": "L-03",
+    "name": "Learner 03",
+    "age": 9,
+    "interests": ["stories", "characters"],
+    "knowledge": "little",
+    "knownConcepts": [],
+    "shortMode": true,
+    "wantsDepth": false,
+    "explorer": false,
+    "language": "en",
+    "description": "Age 9, stories and characters, needs simple explanations and short interactions"
+  },
+  {
+    "id": "L-04",
+    "name": "Learner 04",
+    "age": 12,
+    "interests": ["electronics"],
+    "knowledge": "basics",
+    "knownConcepts": ["simple_circuit"],
+    "shortMode": false,
+    "wantsDepth": true,
+    "explorer": false,
+    "language": "en",
+    "description": "Age 12, electronics, already understands simple circuits, wants deeper explanation"
+  },
+  {
+    "id": "L-05",
+    "name": "Learner 05",
+    "age": 10,
+    "interests": ["general"],
+    "knowledge": "little",
+    "knownConcepts": [],
+    "shortMode": false,
+    "wantsDepth": false,
+    "explorer": true,
+    "language": "en",
+    "description": "Age 10, no stated preference, explores with open-ended questions"
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "id": "tiko",
+  "name": "Tiko",
+  "group": "A",
+  "status": "verified",
+  "role": "mechanic",
+  "facts": [
+    "A scorpio bot whose motor creates up-and-down thread-based tail movement.",
+    "Tiko teaches motors, simple circuits, mechanical motion, energy-to-motion, and troubleshooting."
+  ],
+  "concepts": [
+    "simple_circuit",
+    "motor_motion",
+    "troubleshooting"
+  ],
+  "interestTags": [
+    "scorpions",
+    "machines",
+    "motors",
+    "fixing",
+    "troubleshooting",
+    "movement",
+    "tinkering",
+    "mechanics"
+  ],
+  "emoji": "🦂",
+  "color": "#E67E22",
+  "avatarUrl": null,
+  "productSlug": "tiko-scorpio",
+  "kitUrl": "https://store.funobotz.com/products/tiko-scorpio/3295000000000059216",
+  "voiceStyle": "Adventurous, gritty problem-solver, loves tinkering and troubleshooting mechanical movements",
+  "voiceStyleNote": "voice style and emoji are team presentation choices, not Funobotz facts",
+  "source": "Official Funobotz Pack 2"
+}

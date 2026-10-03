@@ -1,0 +1,34 @@
+{
+  "id": "quacky",
+  "name": "Quacky",
+  "group": "A",
+  "status": "verified",
+  "role": "builder",
+  "facts": [
+    "A movable duck bot powered by a BO motor through a simple circuit.",
+    "Quacky teaches motors, batteries, simple circuits, electrical energy to mechanical motion, and cause and effect."
+  ],
+  "concepts": [
+    "simple_circuit",
+    "battery_energy",
+    "motor_motion"
+  ],
+  "interestTags": [
+    "robots",
+    "machines",
+    "movement",
+    "motors",
+    "animals",
+    "circuits",
+    "ducks",
+    "waddling"
+  ],
+  "emoji": "🦆",
+  "color": "#FFD13B",
+  "avatarUrl": null,
+  "productSlug": "quacky-duck",
+  "kitUrl": "https://store.funobotz.com/products/quacky-duck/3295000000000059176",
+  "voiceStyle": "Cheerful, energetic, loves quacking with excitement about movement and spinning motors",
+  "voiceStyleNote": "voice style and emoji are team presentation choices, not Funobotz facts",
+  "source": "Official Funobotz Pack 2"
+}

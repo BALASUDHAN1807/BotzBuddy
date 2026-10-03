@@ -1,0 +1,27 @@
+{
+  "id": "wavy",
+  "name": "Wavy",
+  "group": "A",
+  "status": "awaiting_concept_sheet",
+  "role": "host",
+  "facts": [
+    "The official Funobotz welcoming guide and host."
+  ],
+  "concepts": [],
+  "interestTags": [
+    "everything",
+    "all",
+    "general",
+    "welcome",
+    "guide",
+    "explore"
+  ],
+  "emoji": "👋",
+  "color": "#FFB13B",
+  "avatarUrl": null,
+  "productSlug": "wavy",
+  "kitUrl": "https://store.funobotz.com",
+  "voiceStyle": "Friendly, encouraging host, guides learners to the right friend",
+  "voiceStyleNote": "voice style and emoji are team presentation choices, not Funobotz facts",
+  "source": "Official Funobotz Pack 2"
+}

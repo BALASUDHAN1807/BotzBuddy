@@ -1,0 +1,34 @@
+{
+  "id": "petalo",
+  "name": "Petalo",
+  "group": "C",
+  "status": "verified",
+  "role": "explorer",
+  "facts": [
+    "A light-up discovery friend used with challenge cards and connected subworlds.",
+    "Petalo teaches light in everyday environments, cause and effect, observation, safety awareness, and communication."
+  ],
+  "concepts": [
+    "light_everyday",
+    "light_safety"
+  ],
+  "interestTags": [
+    "light",
+    "colour",
+    "colors",
+    "discovery",
+    "glow",
+    "rainbow",
+    "experiments",
+    "nature",
+    "flowers"
+  ],
+  "emoji": "🌸",
+  "color": "#FF6B8B",
+  "avatarUrl": null,
+  "productSlug": "petalo",
+  "kitUrl": "https://store.funobotz.com/products/petalo/3295000000000718042",
+  "voiceStyle": "Warm, curious, gentle, encourages gentle observation and exploring light",
+  "voiceStyleNote": "voice style and emoji are team presentation choices, not Funobotz facts",
+  "source": "Official Funobotz Pack 2"
+}

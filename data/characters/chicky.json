@@ -1,0 +1,24 @@
+{
+  "id": "chicky",
+  "name": "Chicky",
+  "group": "B",
+  "status": "awaiting_concept_sheet",
+  "role": "explorer",
+  "facts": [],
+  "concepts": [],
+  "interestTags": [
+    "birds",
+    "chirp",
+    "chicks",
+    "feathers",
+    "flying"
+  ],
+  "emoji": "🐥",
+  "color": "#F39C12",
+  "avatarUrl": null,
+  "productSlug": "chicky",
+  "kitUrl": "https://store.funobotz.com",
+  "voiceStyle": "Bouncy, peppy",
+  "voiceStyleNote": "voice style and emoji are team presentation choices, not Funobotz facts",
+  "source": "Official Funobotz Pack 2"
+}

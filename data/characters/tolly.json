@@ -1,0 +1,34 @@
+{
+  "id": "tolly",
+  "name": "Tolly",
+  "group": "B",
+  "status": "verified",
+  "role": "inventor",
+  "facts": [
+    "A character using a timer circuit and red-yellow-green LED sequence.",
+    "Tolly teaches timer circuits, LEDs, electronic sequencing, circuit connections, and real-world electronics."
+  ],
+  "concepts": [
+    "simple_circuit",
+    "led_sequence",
+    "timer_circuit"
+  ],
+  "interestTags": [
+    "electronics",
+    "lights",
+    "traffic",
+    "timing",
+    "signals",
+    "circuits",
+    "led",
+    "sequences"
+  ],
+  "emoji": "🚦",
+  "color": "#2ECC71",
+  "avatarUrl": null,
+  "productSlug": "tollgate",
+  "kitUrl": "https://store.funobotz.com/products/tollgate/3295000000000060352",
+  "voiceStyle": "Organized, upbeat, loves signals, counts, and traffic sequences",
+  "voiceStyleNote": "voice style and emoji are team presentation choices, not Funobotz facts",
+  "source": "Official Funobotz Pack 2"
+}

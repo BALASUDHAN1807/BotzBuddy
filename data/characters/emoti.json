@@ -1,0 +1,27 @@
+{
+  "id": "emoti",
+  "name": "Emoti",
+  "group": "B",
+  "status": "behaviour_only",
+  "role": "companion",
+  "facts": [
+    "An expression bot that brings emotions to life through simple movements and reactions."
+  ],
+  "concepts": [],
+  "interestTags": [
+    "emotions",
+    "expressions",
+    "feelings",
+    "stories",
+    "faces",
+    "reactions"
+  ],
+  "emoji": "😊",
+  "color": "#9B59B6",
+  "avatarUrl": null,
+  "productSlug": "emoti",
+  "kitUrl": "https://store.funobotz.com",
+  "voiceStyle": "Expressive, empathetic, playful",
+  "voiceStyleNote": "voice style and emoji are team presentation choices, not Funobotz facts",
+  "source": "Official Funobotz Pack 2"
+}

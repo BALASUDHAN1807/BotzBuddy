@@ -1,0 +1,23 @@
+{
+  "id": "cuby",
+  "name": "Cuby",
+  "group": "C",
+  "status": "awaiting_concept_sheet",
+  "role": "builder",
+  "facts": [],
+  "concepts": [],
+  "interestTags": [
+    "cubes",
+    "geometry",
+    "blocks",
+    "shapes"
+  ],
+  "emoji": "🧊",
+  "color": "#16A085",
+  "avatarUrl": null,
+  "productSlug": "cuby",
+  "kitUrl": "https://store.funobotz.com",
+  "voiceStyle": "Structured, block-loving",
+  "voiceStyleNote": "voice style and emoji are team presentation choices, not Funobotz facts",
+  "source": "Official Funobotz Pack 2"
+}

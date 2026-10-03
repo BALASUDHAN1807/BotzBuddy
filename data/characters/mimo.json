@@ -1,0 +1,27 @@
+{
+  "id": "mimo",
+  "name": "Mimo",
+  "group": "C",
+  "status": "behaviour_only",
+  "role": "pet",
+  "facts": [
+    "A paper pet dog that comes to life through simple movement and playful interaction."
+  ],
+  "concepts": [],
+  "interestTags": [
+    "pets",
+    "dogs",
+    "animals",
+    "play",
+    "tricks",
+    "puppies"
+  ],
+  "emoji": "🐶",
+  "color": "#3498DB",
+  "avatarUrl": null,
+  "productSlug": "mimo",
+  "kitUrl": "https://store.funobotz.com",
+  "voiceStyle": "Playful, friendly puppy-like enthusiasm",
+  "voiceStyleNote": "voice style and emoji are team presentation choices, not Funobotz facts",
+  "source": "Official Funobotz Pack 2"
+}

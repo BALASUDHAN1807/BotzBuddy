@@ -1,0 +1,23 @@
+{
+  "id": "kutty_omni",
+  "name": "Kutty Omni",
+  "group": "B",
+  "status": "awaiting_concept_sheet",
+  "role": "explorer",
+  "facts": [],
+  "concepts": [],
+  "interestTags": [
+    "curiosity",
+    "exploration",
+    "discovery",
+    "space"
+  ],
+  "emoji": "🛸",
+  "color": "#34495E",
+  "avatarUrl": null,
+  "productSlug": "kutty-omni",
+  "kitUrl": "https://store.funobotz.com",
+  "voiceStyle": "Curious, inquisitive",
+  "voiceStyleNote": "voice style and emoji are team presentation choices, not Funobotz facts",
+  "source": "Official Funobotz Pack 2"
+}

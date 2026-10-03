@@ -1,0 +1,519 @@
+[
+  {
+    "id": "light_everyday",
+    "name": "Light in Everyday Environments",
+    "order": 1,
+    "keywords": ["light", "colour", "colors", "glow", "torch", "sun", "reflection", "shadow", "see"],
+    "explain": {
+      "young": "Light helps our eyes see the world and all its bright colors! When light bounces off things into our eyes, everything lights up with wonder.",
+      "older": "Light is energy that travels in straight rays and bounces off surfaces into our eyes. Without a source of light, our eyes cannot detect objects.",
+      "deep": "Light photons propagate from sources (natural like the Sun or artificial like LEDs). Visibility occurs when light reflects off matter and reaches the retina. Contrast, absorption, and reflection determine the colors and clarity we observe."
+    },
+    "hints": [
+      "Think about what you need when entering a dark room.",
+      "For example, you turn on a flashlight or open curtains to let light bounce off things.",
+      "Demonstration: Notice how a shadow disappears when light shines directly on every side.",
+      "Explanation: Light travels from a light source, bounces off objects, and enters our eyes so we can see."
+    ],
+    "build": "Fold an eco-friendly paper card, color one side bright yellow, and shine a small torch to see light bounce onto the table!",
+    "virtualBuild": ["torch", "card", "surface"],
+    "experiment": "What do you think happens when you shine a bright beam of light on a mirror?",
+    "observeOptions": [
+      "The light bounces off like a ball in a new direction.",
+      "The light disappears and vanishes completely.",
+      "The mirror turns into a lightbulb."
+    ],
+    "observe": "The light bounces smoothly off the reflective surface! That reflection allows us to illuminate new corners.",
+    "teachBack": "Now you teach me: why do we need light to see things around us?",
+    "keyIdeas": [
+      { "id": "light_source", "terms": ["source", "torch", "sun", "lamp", "bulb", "light"] },
+      { "id": "reflection_eyes", "terms": ["bounce", "reflect", "eyes", "see", "travel", "enters"] }
+    ],
+    "misconceptions": [
+      {
+        "id": "eyes_make_light",
+        "patterns": ["eyes make light", "eyes shoot light", "eyes glow to see", "eyes emit light"],
+        "fix": "Our eyes do not create light; they are super-detectors that catch light bouncing off other things!"
+      }
+    ],
+    "check": {
+      "q": "How does light let us see a red apple?",
+      "options": [
+        "Light bounces off the apple and enters our eyes.",
+        "Our eyes shine flashlight beams onto the apple.",
+        "The apple makes light all by itself in the dark."
+      ],
+      "answer": 0
+    },
+    "create": {
+      "prompt": "Pick your creative art + engineering light challenge:",
+      "choices": [
+        "Design a glowing night-light shadow puppet show",
+        "Make a rainbow prism room reflector",
+        "Invent a secret spy mirror signal communicator",
+        "Build a multi-colored lantern box"
+      ]
+    },
+    "teamUp": {
+      "prompt": "What is the same about how light works across all our projects?",
+      "keyIdeas": [
+        { "id": "same_light_reflection", "terms": ["both reflect", "both bounce", "both use light", "both light up", "light enters eyes", "light source"] }
+      ]
+    },
+    "nextSteps": "Future Funobotz path: Learn IoT ambient light sensors and AI camera vision!",
+    "source": "General STEM explanation. Character facts only from Resource Pack 2."
+  },
+  {
+    "id": "light_safety",
+    "name": "Light and Safety Awareness",
+    "order": 2,
+    "keywords": ["safety", "bright", "protect", "eyes", "laser", "sunlight", "hazard", "glasses"],
+    "explain": {
+      "young": "Bright lights help us see, but very strong lights can hurt gentle eyes! We must never look straight at the sun or strong beams.",
+      "older": "Light safety involves protecting vision from intense radiation like ultraviolet rays and concentrated laser beams that can damage photoreceptors.",
+      "deep": "Excessive optical power (high lux or UV wavelengths) causes thermal and photochemical damage to retinal cells. Proper shielding, diffusion, and safe optical paths prevent irreversible vision harm."
+    },
+    "hints": [
+      "Think about what you do on a sunny day at the beach.",
+      "For example, wearing sunglasses protects your eyes from glaring rays.",
+      "Demonstration: Diffusing a bright LED through paper softens the glare comfortably.",
+      "Explanation: Using light safely means never staring at intense sources and using diffusers to protect vision."
+    ],
+    "build": "Add a translucent paper shield over a small light to diffuse the harsh glare into a soft glow!",
+    "virtualBuild": ["bright_led", "diffuser_paper", "card_holder"],
+    "experiment": "What happens when you look directly into a high-powered beam vs through a paper diffuser?",
+    "observeOptions": [
+      "The diffuser scatters the rays so the glow is gentle and safe.",
+      "The diffuser makes the light invisible.",
+      "The light gets hotter and explodes."
+    ],
+    "observe": "The paper diffuser spreads the harsh rays out evenly, protecting our vision while keeping the space illuminated.",
+    "teachBack": "Now you teach me: why should we never look directly at the blazing sun or lasers?",
+    "keyIdeas": [
+      { "id": "intense_energy", "terms": ["strong", "bright", "energy", "burn", "intense", "hurt"] },
+      { "id": "eye_protection", "terms": ["damage", "eyes", "protect", "vision", "retina", "blind"] }
+    ],
+    "misconceptions": [
+      {
+        "id": "sunglasses_allow_sun_staring",
+        "patterns": ["sunglasses let you stare at sun", "sunglasses make sun safe to look at directly"],
+        "fix": "Even with sunglasses, looking straight at the sun is harmful because invisible rays still carry intense thermal energy!"
+      }
+    ],
+    "check": {
+      "q": "What is the safest way to handle a very bright experimental light?",
+      "options": [
+        "Place a frosted diffuser or paper shield in front of it.",
+        "Stare closely into the beam to check if it's working.",
+        "Point it directly into a friend's eyes."
+      ],
+      "answer": 0
+    },
+    "create": {
+      "prompt": "How will you combine art + engineering for light safety?",
+      "choices": [
+        "Craft a frosted paper shade for a desk lamp",
+        "Design a bike safety reflector vest",
+        "Build a soft ambient bedtime reading lamp",
+        "Create sun safety reminder cards with Petalo"
+      ]
+    },
+    "teamUp": {
+      "prompt": "What is the key rule about light safety that keeps all robots and kids safe?",
+      "keyIdeas": [
+        { "id": "same_eye_protection", "terms": ["protect eyes", "never stare", "diffuse", "safe light", "shield"] }
+      ]
+    },
+    "nextSteps": "Future Funobotz path: Optical filters and IoT smart eye-safety sensors.",
+    "source": "General STEM explanation. Character facts only from Resource Pack 2."
+  },
+  {
+    "id": "simple_circuit",
+    "name": "Simple Circuits & Current Flow",
+    "order": 3,
+    "keywords": ["circuit", "wire", "loop", "electricity", "switch", "closed", "open", "path", "connect"],
+    "explain": {
+      "young": "Electricity loves to travel in a circle called a circuit! If the circle has no gaps, power flows and makes things work.",
+      "older": "A simple circuit is a continuous closed loop that allows electric current to flow from a power source, through conductors, to a load and back.",
+      "deep": "Electric current is the net flow of charge carriers driven by an electromotive force (voltage). A closed conductive loop is necessary for sustained charge transfer across the load."
+    },
+    "hints": [
+      "Think of a race track for electric energy.",
+      "For example, if a bridge on the track is broken, the cars must stop.",
+      "Demonstration: Connecting both battery terminals with a wire completes the circle and lights the bulb.",
+      "Explanation: Electricity only flows when there is an unbroken loop from positive (+) back to negative (-)."
+    ],
+    "build": "Connect an eco-friendly paper battery holder to an LED with two conductive foil tracks to complete the closed loop!",
+    "virtualBuild": ["battery", "wire", "load"],
+    "experiment": "What do you think happens if you disconnect one wire from the battery?",
+    "observeOptions": [
+      "The circuit opens and the electric flow stops immediately.",
+      "Electricity keeps leaking out of the wire into the air.",
+      "The bulb stays on forever."
+    ],
+    "observe": "Breaking the path creates an open circuit! Electricity instantly stops moving until the loop is closed again.",
+    "teachBack": "Now you teach me: what is needed for electricity to flow in a circuit?",
+    "keyIdeas": [
+      { "id": "closed_loop", "terms": ["loop", "circle", "closed", "path", "complete", "continuous", "connected"] },
+      { "id": "power_and_wires", "terms": ["battery", "wire", "power", "source", "both sides", "terminals"] }
+    ],
+    "misconceptions": [
+      {
+        "id": "one_wire_is_enough",
+        "patterns": ["one wire", "single wire is enough", "only need one side", "one wire is all"],
+        "fix": "Electricity must return to the battery! A single wire cannot make a loop—you need a complete two-way round trip."
+      }
+    ],
+    "check": {
+      "q": "Why does a light turn off when a switch is opened?",
+      "options": [
+        "Opening the switch breaks the continuous loop of current.",
+        "The battery instantly runs out of all its energy.",
+        "The wires become too cold to carry power."
+      ],
+      "answer": 0
+    },
+    "create": {
+      "prompt": "What circuit project will you design & decorate?",
+      "choices": [
+        "A secret paper pressure switch that triggers an alarm",
+        "A glowing paper greeting card with copper tape",
+        "A tilt-activated robot safety sensor",
+        "A steady-hand wire maze challenge game"
+      ]
+    },
+    "teamUp": {
+      "prompt": "What's the same in both Quacky's, Tolly's, and Tiko's circuits?",
+      "keyIdeas": [
+        { "id": "same_circuit_concept", "terms": ["closed loop", "complete circuit", "continuous loop", "battery connection", "electricity flows in a circle", "both need loop", "all need loop", "both use circuit"] }
+      ]
+    },
+    "nextSteps": "Future Funobotz path: Microcontroller circuit control with BBC micro:bit & Arduino.",
+    "source": "General STEM explanation. Character facts only from Resource Pack 2."
+  },
+  {
+    "id": "battery_energy",
+    "name": "Battery Energy & Terminals",
+    "order": 4,
+    "keywords": ["battery", "chemical", "energy", "terminal", "positive", "negative", "voltage", "power", "cell"],
+    "explain": {
+      "young": "Batteries store chemical energy like tiny energy lunchboxes! They give that energy to electricity to push it through wires.",
+      "older": "A battery converts stored chemical potential energy into electrical energy through electrochemical reactions between its positive (+) and negative (-) terminals.",
+      "deep": "Electrochemical redox reactions create an electric potential difference (voltage) between anode and cathode. Electrons flow through the external circuit while ions migrate internally."
+    },
+    "hints": [
+      "Look closely at the two ends of a AA battery.",
+      "For example, one end has a plus (+) bump and the other has a flat minus (-).",
+      "Demonstration: Reversing the battery flips the direction the electrical push moves.",
+      "Explanation: The chemical reaction inside pushes electrons from the negative terminal toward the positive terminal."
+    ],
+    "build": "Slide a coin cell battery between two folded paper flaps marked (+) and (-) to test terminal orientation!",
+    "virtualBuild": ["battery_cell", "positive_contact", "negative_contact"],
+    "experiment": "What do you think happens when a battery's stored chemical energy is completely used up?",
+    "observeOptions": [
+      "The chemical reaction slows down and current stops flowing.",
+      "The battery becomes full of magic sparks.",
+      "The battery gets heavier."
+    ],
+    "observe": "When the active chemicals finish reacting, the voltage drops and it can no longer push electricity through the circuit.",
+    "teachBack": "Now you teach me: how does a battery provide power to a robot?",
+    "keyIdeas": [
+      { "id": "chemical_storage", "terms": ["chemical", "store", "stored", "energy", "reaction", "inside"] },
+      { "id": "electrical_push", "terms": ["push", "voltage", "terminals", "plus", "minus", "positive", "negative", "flow"] }
+    ],
+    "misconceptions": [
+      {
+        "id": "battery_never_runs_out",
+        "patterns": ["battery never runs out", "battery makes infinite power", "electricity is forever inside battery"],
+        "fix": "Batteries have a finite amount of chemicals; once the chemical reactants are spent, the battery needs recharging or replacement!"
+      },
+      {
+        "id": "motor_makes_energy",
+        "patterns": ["motor makes energy", "motor creates electricity for the battery", "motor is the power source"],
+        "fix": "The battery provides the electrical energy; the motor only converts that electrical energy into mechanical movement!"
+      }
+    ],
+    "check": {
+      "q": "What type of energy is stored inside a battery before connecting it?",
+      "options": [
+        "Chemical potential energy",
+        "Sound energy",
+        "Mechanical spin energy"
+      ],
+      "answer": 0
+    },
+    "create": {
+      "prompt": "Choose your battery exploration build:",
+      "choices": [
+        "Build a lemon or potato battery cell",
+        "Design a modular snap-in battery pack for paper robots",
+        "Create a battery tester with an LED indicator",
+        "Invent a dual-battery booster switch"
+      ]
+    },
+    "teamUp": {
+      "prompt": "What is the same about how our robots use battery energy?",
+      "keyIdeas": [
+        { "id": "same_battery_power", "terms": ["battery powers both", "both store energy", "chemical energy to electricity", "positive and negative", "power source"] }
+      ]
+    },
+    "nextSteps": "Future Funobotz path: Solar energy harvesting and IoT power management.",
+    "source": "General STEM explanation. Character facts only from Resource Pack 2."
+  },
+  {
+    "id": "motor_motion",
+    "name": "Motors & Mechanical Motion",
+    "order": 5,
+    "keywords": ["motor", "spin", "shaft", "motion", "mechanical", "gears", "rotation", "movement", "bo motor"],
+    "explain": {
+      "young": "A motor turns electrical energy into spin! When electricity flows inside, magnets twist the shaft to make wheels roll or tails wiggle.",
+      "older": "A DC motor converts electrical energy into mechanical kinetic energy using electromagnetism to produce rotational torque.",
+      "deep": "Current passing through armature windings within a magnetic field generates Lorentz force, producing torque that rotates the rotor. Gearing (like in a BO motor) trades rotational speed for torque."
+    },
+    "hints": [
+      "Think about what makes toy car wheels spin around.",
+      "For example, inside a fan or Quacky the duck, a motor spins a central rod.",
+      "Demonstration: Reversing the wires on a motor makes it spin in the opposite direction!",
+      "Explanation: Electricity flows into internal coils, creating magnetic forces that spin the motor shaft."
+    ],
+    "build": "Attach a paper spiral or duck feet to a BO motor shaft and watch electric power turn into spinning motion!",
+    "virtualBuild": ["battery", "switch", "motor"],
+    "experiment": "What happens to the motor's spin direction if you swap the positive and negative wires?",
+    "observeOptions": [
+      "The motor spins in the opposite reverse direction.",
+      "The motor stops moving forever.",
+      "The motor starts jumping into the air."
+    ],
+    "observe": "Swapping the wires reverses the magnetic push, making the motor shaft spin backward!",
+    "teachBack": "Now you teach me: how does a motor turn electricity into movement?",
+    "keyIdeas": [
+      { "id": "energy_conversion", "terms": ["electrical", "convert", "change", "mechanical", "motion", "kinetic", "spin", "movement"] },
+      { "id": "magnetism_shaft", "terms": ["magnet", "magnetic", "coil", "shaft", "twist", "turns", "force"] }
+    ],
+    "misconceptions": [
+      {
+        "id": "motor_makes_energy",
+        "patterns": ["motor makes energy", "motor creates power", "motor produces electricity"],
+        "fix": "Remember, motors do not create energy—they transform the battery's electrical energy into physical motion!"
+      }
+    ],
+    "check": {
+      "q": "What happens when electricity enters a DC motor?",
+      "options": [
+        "Magnetic forces turn electrical energy into rotational motion.",
+        "The motor stores electricity as chemical food.",
+        "The motor converts cold air into hot sparks."
+      ],
+      "answer": 0
+    },
+    "create": {
+      "prompt": "Pick your paper motion engineering challenge:",
+      "choices": [
+        "Build Quacky's waddling duck-walk linkage",
+        "Create Tiko's thread-pulled scorpion tail mechanism",
+        "Invent a spinning motorized carousel",
+        "Design a mini paper boat propeller drive"
+      ]
+    },
+    "teamUp": {
+      "prompt": "What's the same in both Quacky's and Tiko's robots?",
+      "keyIdeas": [
+        { "id": "same_motor_diff_motion", "terms": ["both use motor", "same motor", "motor turns electricity into motion", "different movement", "both move", "electrical to mechanical", "motor spins"] }
+      ]
+    },
+    "nextSteps": "Future Funobotz path: Servo motor angles and robotics kinematics in code.",
+    "source": "General STEM explanation. Character facts only from Resource Pack 2."
+  },
+  {
+    "id": "led_sequence",
+    "name": "LED Sequencing & Signals",
+    "order": 6,
+    "keywords": ["led", "sequence", "traffic", "light", "red", "yellow", "green", "polarity", "signal", "anode", "cathode", "electronics", "electronic"],
+    "explain": {
+      "young": "LEDs are tiny glowing lights that only work in one direction! Sequencing them lets us make friendly signals, like red-yellow-green traffic lights.",
+      "older": "Light Emitting Diodes (LEDs) are polarized semiconductor light sources that conduct current in one direction (anode to cathode) to display sequenced signals.",
+      "deep": "An LED operates via electroluminescence across a p-n junction under forward bias. Sequencing multiple LEDs requires controlled timing circuits or logic to cycle states safely."
+    },
+    "hints": [
+      "Notice how traffic lights change one by one in a clear order.",
+      "For example, red tells cars to stop, yellow means prepare, and green means go.",
+      "Demonstration: If an LED is flipped backward, no current flows and it will not glow.",
+      "Explanation: LEDs have polarity (long leg positive) and lighting them sequentially creates informative signals."
+    ],
+    "build": "Arrange Red, Yellow, and Green LEDs in order on a paper tollgate arm and connect their long legs to positive signals!",
+    "virtualBuild": ["red_led", "yellow_led", "green_led"],
+    "experiment": "What happens if you plug an LED in backward (cathode to positive)?",
+    "observeOptions": [
+      "It does not glow because diodes only permit current in one forward direction.",
+      "It changes color from green to purple.",
+      "It makes a loud horn sound."
+    ],
+    "observe": "Because an LED is a one-way electronic valve, reversing it blocks current and the light stays off!",
+    "teachBack": "Now you teach me: why is the order and polarity of LEDs important in a signaling system?",
+    "keyIdeas": [
+      { "id": "polarity_direction", "terms": ["polarity", "one way", "direction", "anode", "cathode", "plus", "minus", "forward"] },
+      { "id": "sequence_signaling", "terms": ["sequence", "order", "signal", "traffic", "timing", "red", "green", "yellow", "message"] }
+    ],
+    "misconceptions": [
+      {
+        "id": "led_order_doesnt_matter",
+        "patterns": ["led order doesn't matter", "led direction doesn't matter", "any way works for led", "leds have no plus or minus"],
+        "fix": "LEDs are diodes, meaning current can only flow in one direction! Polarity and sequence are essential for it to light up."
+      }
+    ],
+    "check": {
+      "q": "Why won't an LED light up if it is connected backward?",
+      "options": [
+        "It acts as a one-way gate and blocks reverse electric current.",
+        "It needs to sleep when turned backward.",
+        "It only likes being connected on sunny days."
+      ],
+      "answer": 0
+    },
+    "create": {
+      "prompt": "What signal sequence will you build?",
+      "choices": [
+        "A 3-color automated railway gate signal like Tolly",
+        "A Morse code light telegraph communicator",
+        "An emergency ambulance dual-flasher sequence",
+        "A disco light stage for paper robots"
+      ]
+    },
+    "teamUp": {
+      "prompt": "How do LEDs and sequences communicate clear signals in our electronic worlds?",
+      "keyIdeas": [
+        { "id": "same_signal_meaning", "terms": ["polarity matters", "order gives meaning", "one way current", "traffic signal", "sequence"] }
+      ]
+    },
+    "nextSteps": "Future Funobotz path: Programmable RGB Neopixels and smart city IoT signaling.",
+    "source": "General STEM explanation. Character facts only from Resource Pack 2."
+  },
+  {
+    "id": "timer_circuit",
+    "name": "Timer Circuits & Intervals",
+    "order": 7,
+    "keywords": ["timer", "interval", "555", "capacitor", "delay", "pulse", "timing", "clock", "frequency", "cycle", "electronics", "electronic"],
+    "explain": {
+      "young": "A timer circuit is like a robot heartbeat! It counts steady seconds to turn lights and motors on and off automatically.",
+      "older": "A timer circuit generates controlled electrical pulses or delays using resistors and capacitors (RC timing) to automate repetitive cycles.",
+      "deep": "Timer circuits (such as 555 ICs or RC networks) rely on capacitor charge/discharge curves across threshold voltages to generate stable astable square waves or monostable delays."
+    },
+    "hints": [
+      "Think about a metronome or ticking clock keeping a beat.",
+      "For example, a crosswalk buzzer ticks steadily so people know when to cross.",
+      "Demonstration: Changing the timing capacitor makes the pulse rhythm faster or slower.",
+      "Explanation: Storing and releasing small amounts of charge sets precise time intervals between actions."
+    ],
+    "build": "Wire a timing capacitor to an LED circuit on paper to create automatic blinking intervals!",
+    "virtualBuild": ["capacitor", "resistor", "timer_chip"],
+    "experiment": "What happens when you increase the resistance or capacitance in the timer circuit?",
+    "observeOptions": [
+      "The charging time increases, making the interval slower and longer.",
+      "The LED permanently turns off forever.",
+      "The timer starts showing the current wall clock time."
+    ],
+    "observe": "A larger capacitor takes longer to fill up with charge, stretching out the time between each blink or pulse!",
+    "teachBack": "Now you teach me: how does a timer circuit control when a robot acts?",
+    "keyIdeas": [
+      { "id": "timing_pulse", "terms": ["pulse", "heartbeat", "interval", "seconds", "delay", "rhythm", "cycle"] },
+      { "id": "automatic_control", "terms": ["automatic", "charge", "discharge", "capacitor", "resistor", "on and off", "switch"] }
+    ],
+    "misconceptions": [
+      {
+        "id": "timer_shows_wall_clock",
+        "patterns": ["timer shows the time of day", "timer is a wall clock", "timer tells what hour it is"],
+        "fix": "Electronic timer circuits measure time intervals (duration like 2 seconds), not the clock time of day!"
+      }
+    ],
+    "check": {
+      "q": "What does a timer circuit do in a robot?",
+      "options": [
+        "It measures precise time delays to trigger actions on schedule.",
+        "It tells the robot what day of the week it is.",
+        "It generates free electricity out of thin air."
+      ],
+      "answer": 0
+    },
+    "create": {
+      "prompt": "Design your automated timing project:",
+      "choices": [
+        "An automatic blinking lighthouse tower with Tolly",
+        "A 10-second paper rocket launch countdown timer",
+        "An automatic plant water reminder pulse indicator",
+        "A metronome rhythm box for robot dances"
+      ]
+    },
+    "teamUp": {
+      "prompt": "What makes timing circuits so useful across all automated robot inventions?",
+      "keyIdeas": [
+        { "id": "same_timing_automation", "terms": ["automatic pulse", "counts intervals", "controls actions", "steady beat", "charge and discharge"] }
+      ]
+    },
+    "nextSteps": "Future Funobotz path: Real-Time Clock (RTC) modules and Digital Twin simulation synchronization.",
+    "source": "General STEM explanation. Character facts only from Resource Pack 2."
+  },
+  {
+    "id": "troubleshooting",
+    "name": "Systematic Troubleshooting & Debugging",
+    "order": 8,
+    "keywords": ["troubleshoot", "debug", "fix", "loose", "check", "broken", "wire", "test", "inspect", "systematic"],
+    "explain": {
+      "young": "When a robot doesn't work, we become detective problem solvers! We check connections one step at a time instead of giving up.",
+      "older": "Troubleshooting is a systematic process of isolating variables: checking power, inspecting connections, and testing individual components to identify faults.",
+      "deep": "Engineering debugging applies hypothesis testing and root-cause analysis. By isolating subsystems (power supply, continuity, mechanical binding, component failure), faults are resolved efficiently."
+    },
+    "hints": [
+      "Think of a doctor checking symptoms one by one.",
+      "For example, check if the battery is charged before replacing a whole motor.",
+      "Demonstration: Tiko checks for loose wire tape or tangled thread tails first.",
+      "Explanation: Test each part in order—battery, connection, component—to pinpoint the exact issue."
+    ],
+    "build": "Inspect a sample paper robot circuit: re-press loose copper tape, ensure battery polarity is right, and test again!",
+    "virtualBuild": ["check_battery", "press_tape", "test_switch"],
+    "experiment": "If a robot motor is not spinning, what is the best first step to take?",
+    "observeOptions": [
+      "Check if wires are firmly connected and the battery has power.",
+      "Immediately throw the whole robot in the trash.",
+      "Bang the table and hope it starts working."
+    ],
+    "observe": "Checking the simplest things first (loose wires or dead batteries) solves over 90% of robot problems quickly!",
+    "teachBack": "Now you teach me: what steps should a STEM detective take when a build doesn't work?",
+    "keyIdeas": [
+      { "id": "step_by_step", "terms": ["step by step", "one by one", "systematic", "check", "inspect", "isolate", "detective"] },
+      { "id": "connection_power", "terms": ["battery", "wire", "loose", "connection", "power", "tape", "test", "fix"] }
+    ],
+    "misconceptions": [
+      {
+        "id": "throw_it_away",
+        "patterns": ["throw it away if broken", "it is broken throw away", "buy a new one immediately", "give up when it fails"],
+        "fix": "Never throw away a robot! Most issues are just simple loose connections, flat batteries, or backward parts that are easy to fix."
+      }
+    ],
+    "check": {
+      "q": "What is the golden rule of robot troubleshooting?",
+      "options": [
+        "Isolate and test components systematically step by step.",
+        "Assume the robot is permanently broken.",
+        "Change every single part at the same time without testing."
+      ],
+      "answer": 0
+    },
+    "create": {
+      "prompt": "Pick your master troubleshooting mission:",
+      "choices": [
+        "Create a STEM Detective Checklist badge with Tiko",
+        "Build a multi-fault circuit testbench with LEDs",
+        "Fix a loose-wire paper scorpion tail mechanism",
+        "Write a quick guide for fixing common paper robot bugs"
+      ]
+    },
+    "teamUp": {
+      "prompt": "What is the secret every Funobotz detective uses when fixing broken builds?",
+      "keyIdeas": [
+        { "id": "same_detective_strategy", "terms": ["test step by step", "check power and connections", "never give up", "isolate parts", "check loose wires"] }
+      ]
+    },
+    "nextSteps": "Future Funobotz path: AI-assisted telemetry diagnostics and automated test bench scripts.",
+    "source": "General STEM explanation. Character facts only from Resource Pack 2."
+  }
+]
