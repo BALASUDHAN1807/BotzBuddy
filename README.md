@@ -22,18 +22,33 @@ BotzBuddy is an **integration-ready chatbot plugin** (installed via a single `<s
 
 ## ⚡ 2. Quick Start
 
-```bash
-# 1. Install dependencies
-npm install
+The backend is **Python 3.11+** (FastAPI + Uvicorn). The embeddable plugin and demo pages are plain browser JavaScript served by the same server.
 
-# 2. Configure environment (Optional: rule-based fallback works 100% without API keys!)
+```bash
+# 1. Create a virtual environment and install dependencies
+python -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -r requirements-dev.txt
+
+# 2. Configure environment (optional: the rule-based fallback works 100% without API keys)
 cp .env.example .env
 
-# 3. Run the 16-point automated acceptance test suite
-npm test
+# 3. Run the automated test suite (21 acceptance tests + API tests)
+pytest
 
-# 4. Start local server
-npm start
+# 4. Start the server on http://localhost:3000
+python -m botzbuddy
+# or, with auto-reload while developing:
+uvicorn botzbuddy.main:app --reload --port 3000
+```
+
+Interactive API docs (Swagger UI) are at [http://localhost:3000/docs](http://localhost:3000/docs).
+
+Run with Docker instead:
+
+```bash
+docker build -t botzbuddy .
+docker run -p 3000:3000 --env-file .env botzbuddy
 ```
 
 ### 🌐 Demo Pages:
@@ -100,6 +115,41 @@ window.BotzBuddy.on('kit', (kitData) => {
 
 ---
 
+## 🗂️ Project Structure & REST API
+
+```text
+botzbuddy/            Python backend package
+  main.py             FastAPI app: REST routes, CORS, static files, session TTL, hot reload
+  brain.py            Adaptive brain: intents, routing, 5-stage mission engine
+  twin.py             Learning Twin: mastery, XP ranks, signals, decision log
+  classifier.py       3-tier question classifier (rules -> LLM -> keywords)
+  explainer.py        Age-adaptive general-science explainer + lesson bridges
+  analyzer.py         Teach-back analysis (LLM -> keyword fallback)
+  llm.py              OpenAI / Gemini / Groq clients (httpx, async) + Gemini Vision
+  registry.py         Characters, concepts, profiles loaded from data/
+  safety.py           Mains-electricity, privacy and unsafe-topic guard
+  storage.py          Curiosity Jar (in-memory, optional MongoDB)
+data/                 Character, concept and learner-profile JSON (hot-reloaded)
+public/plugin/        botzbuddy.js — the embeddable <script> widget
+public/demo/          Demo pages (home, kit store, classroom)
+tests/                pytest suite
+```
+
+| Method | Path | Purpose |
+| :--- | :--- | :--- |
+| `GET` | `/api/health` | Service status and which LLM providers are configured |
+| `GET` | `/api/characters` | Character registry |
+| `GET` | `/api/concepts` | Concept library (sorted by `order`) |
+| `GET` | `/api/profiles` | Benchmark learner profiles L-01…L-05 |
+| `POST` | `/api/session` | Start a session → greeting, first mission, Learning Twin state |
+| `POST` | `/api/chat` | Send `text` and/or a quick-reply `action` for a `sessionId` |
+| `GET` | `/api/teacher/sessions?context=class` | Anonymised live Teacher View |
+| `GET` | `/api/curiosity-jar` | Curiosity Jar summary and recent questions |
+| `POST` | `/api/photo-check` | Gemini Vision feedback on a photo of a paper build |
+| `POST` | `/api/admin/reload` | Force-reload the data registry |
+
+---
+
 ## 🏛️ 5. System Architecture
 
 ```text
@@ -123,12 +173,12 @@ window.BotzBuddy.on('kit', (kitData) => {
 |   +-----------------------------------------+---------------------------------------+   |
 |                                             |                                           |
 |   +-----------------------------------------v---------------------------------------+   |
-|   |                          Learning Twin Model (src/twin.js)                      |   |
+|   |                          Learning Twin Model (botzbuddy/twin.py)                   |   |
 |   |   Mastery Map (0-100), 4 Signals, XP Ranking Journey, Misconceptions Memory     |   |
 |   +-----------------------------------------+---------------------------------------+   |
 |                                             |                                           |
 |   +-----------------------------------------v---------------------------------------+   |
-|   |                           Adaptive Brain (src/brain.js)                         |   |
+|   |                           Adaptive Brain (botzbuddy/brain.py)                      |   |
 |   |   * Intent Detection (Stuck / Fast-Track / Switch / Unapproved Lore Guard)      |   |
 |   |   * Funobotz 5-Stage Mission Cycle:                                             |   |
 |   |     Build -> Experiment -> Observe -> Explain -> Create                         |   |
@@ -136,7 +186,7 @@ window.BotzBuddy.on('kit', (kitData) => {
 |   +----------------------------+--------------------------------+-------------------+   |
 |                                |                                |                       |
 |   +----------------------------v----+              +------------v-------------------+   |
-|   |      Talker Chain (src/llm.js)  |              | Teach-Back Analyzer (analyzer) |   |
+|   |      Talker Chain (llm.py)      |              | Teach-Back Analyzer (analyzer) |   |
 |   |      Gemini -> Groq -> Draft    |              | Groq -> Gemini -> Keyword Rule |   |
 |   |      Strict Grounding Check     |              | Misconception & Key Idea Score |   |
 |   +---------------------------------+              +--------------------------------+   |
@@ -223,7 +273,7 @@ When embedded on class and workshop pages with `data-teacher="true"`, BotzBuddy 
 
 ## 🔄 11. Hot-Reloading & Adding New Characters
 
-To add a new Funobotz character or concept sheet, simply drop a JSON file into `data/characters/new_bot.json`. The server debounces `fs.watch` and updates the live registry automatically with zero restarts or code changes!
+To add a new Funobotz character or concept sheet, simply drop a JSON file into `data/characters/new_bot.json`. The server checks `data/` every second and reloads the live registry automatically with zero restarts or code changes. You can also call `POST /api/admin/reload`.
 
 ---
 
@@ -272,7 +322,7 @@ BotzBuddy incorporates 7 pedagogical innovations tailored specifically for Funob
 
 ### 🍃 Innovation 7: Optional MongoDB Persistence
 * **Why it helps learning:** Enables multi-session persistence across classroom tablets and home devices while maintaining 100% server operability in-memory without any database dependencies.
-* **How to use it:** If `MONGODB_URI` is provided in `.env`, sessions and Curiosity Jar entries are saved to MongoDB; if unset, BotzBuddy defaults to in-memory storage with zero setup friction.
+* **How to use it:** If `MONGODB_URI` is provided in `.env` (and `pip install pymongo`), Curiosity Jar entries are also saved to MongoDB; if unset, BotzBuddy defaults to in-memory storage with zero setup friction.
 
 ### 🧠 Innovation 8: Age-Adaptive Explainer & 3-Tier Question Classifier (OpenAI / Gemini / Groq)
 * **Why it helps learning:** Children of different ages grasp science differently. A 7-year-old needs sensory, story-driven analogies (curd = milk sleeping under a cozy blanket of good bacteria); a 10-year-old understands mechanical actions (bacteria eating milk sugar into lactic acid); a 13-year-old needs real chemistry (Lactobacillus, pH drops, protein denaturation). Furthermore, asking random science questions shouldn't distract from hands-on robotics—it should **bridge** back to approved Funobotz lessons!
