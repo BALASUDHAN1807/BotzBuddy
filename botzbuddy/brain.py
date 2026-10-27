@@ -313,7 +313,7 @@ async def process_message(*, twin: LearningTwin, text: str = "", action: dict | 
     clean = (text or "").strip()
     lower = clean.lower()
     action = action if isinstance(action, dict) else None
-    # The plugin's quick-reply chips carry their kind in "action"; persistent buttons use "type".
+    # Quick-reply objects carry their kind in "action"; explicit actions use "type".
     action_type = (action.get("type") or action.get("action")) if action else None
     value = action.get("value") if action else None
     value = value if isinstance(value, str) else ""

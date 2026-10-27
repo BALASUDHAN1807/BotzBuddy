@@ -9,7 +9,6 @@ from dotenv import load_dotenv
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT_DIR / "data"
-PUBLIC_DIR = ROOT_DIR / "public"
 
 load_dotenv(ROOT_DIR / ".env")
 

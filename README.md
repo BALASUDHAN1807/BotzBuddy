@@ -2,27 +2,15 @@
 
 > **"We don't make the child adapt to the lesson. We make the lesson adapt to the child."**
 
----
+BotzBuddy is an adaptive STEM learning companion for **Funobotz Paper Robotics** — eco-friendly paper robotics kits and classes for children aged **6 to 14**. It guides each child through hands-on missions with Funobotz robot characters, adapts to their age, interests and mastery, refuses to invent facts, and gives teachers a live view of the class.
 
-## 🏢 1. Who Funobotz Is & Where BotzBuddy Fits
-
-**Funobotz Paper Robotics Pvt. Ltd.** is an ed-tech company combining **art + engineering**:
-- Designs eco-friendly, paper-based DIY robotics kits teaching robotics, IoT, AI, and Digital Twin foundations.
-- Runs hands-on coding, electronics, and robotics classes for children aged **6 to 14**.
-- Runs school workshops, institutional training, and builds paper-robotics smart classrooms.
-- Operates the **main learning platform** (`funobotz.com`) and the **online store** (`store.funobotz.com`, Zoho Commerce).
-
-### 🔌 One Plugin, Every Funobotz Touchpoint:
-BotzBuddy is an **integration-ready chatbot plugin** (installed via a single `<script>` tag) that embeds seamlessly into:
-1. **Learning Platform Home** (`home.html`, `data-context="home"`) — Welcoming guide, exploratory onboarding, and Discovery Worlds.
-2. **Online Kit Store** (`kit.html`, `data-context="kit"`) — Context-aware product assistant that detects robot models from the URL and runs grounded STEM missions.
-3. **Classrooms & School Workshops** (`class.html`, `data-context="class"`, `data-teacher="true"`) — Real-time live Teacher View monitor and "Show your teacher" milestone checkpoints.
+**100% Python:** a **Streamlit** app for learners and teachers, a **FastAPI** REST API for integrations, and one shared adaptive engine.
 
 ---
 
-## ⚡ 2. Quick Start
+## ⚡ 1. Quick Start
 
-The backend is **Python 3.11+** (FastAPI + Uvicorn). The embeddable plugin and demo pages are plain browser JavaScript served by the same server.
+Requires **Python 3.11+**.
 
 ```bash
 # 1. Create a virtual environment and install dependencies
@@ -33,107 +21,75 @@ pip install -r requirements-dev.txt
 # 2. Configure environment (optional: the rule-based fallback works 100% without API keys)
 cp .env.example .env
 
-# 3. Run the automated test suite (21 acceptance tests + API tests)
+# 3. Run the test suite (engine, REST API and Streamlit UI)
 pytest
 
-# 4. Start the server on http://localhost:3000
-python -m botzbuddy
-# or, with auto-reload while developing:
-uvicorn botzbuddy.main:app --reload --port 3000
+# 4. Launch the app → http://localhost:8501
+streamlit run streamlit_app.py
 ```
 
-Interactive API docs (Swagger UI) are at [http://localhost:3000/docs](http://localhost:3000/docs).
+Optional REST API for other apps (Swagger docs at http://localhost:8000/docs):
 
-Run with Docker instead:
+```bash
+uvicorn botzbuddy.main:app --reload --port 8000
+```
+
+Docker:
 
 ```bash
 docker build -t botzbuddy .
-docker run -p 3000:3000 --env-file .env botzbuddy
+docker run -p 8501:8501 --env-file .env botzbuddy
 ```
 
-### 🌐 Demo Pages:
-- **Ecosystem Demo Hub:** [http://localhost:3000/demo/](http://localhost:3000/demo/)
-- **Main Website (Platform Home):** [http://localhost:3000/demo/home.html](http://localhost:3000/demo/home.html)
-- **Kit Store (Product Detail):** [http://localhost:3000/demo/kit.html?product=tiko-scorpio](http://localhost:3000/demo/kit.html?product=tiko-scorpio)
-- **Robotics Class (Teacher View Enabled):** [http://localhost:3000/demo/class.html](http://localhost:3000/demo/class.html)
+The app also deploys as-is to **Streamlit Community Cloud** (entry file: `streamlit_app.py`; add API keys under *Secrets* as environment variables).
 
 ---
 
-## 🔌 3. 1-Line Embed Snippet & Configuration
+## 🖥️ 2. Using the App
 
-```html
-<script 
-  src="https://YOUR-SERVER/plugin/botzbuddy.js" 
-  data-api="https://YOUR-SERVER" 
-  data-context="home" 
-  data-character="wavy" 
-  data-lang="en" 
-  data-theme="#FFB13B" 
-  data-position="right" 
-  data-teacher="false" 
-  data-demo="true">
-</script>
-```
+The sidebar sets up the learner, then **🚀 Start learning mission** begins a session.
 
-### HTML `data-*` Configuration Options:
-| Attribute | Options | Description | Default |
-| :--- | :--- | :--- | :--- |
-| `data-api` | URL | Server API endpoint | Current origin |
-| `data-context` | `home` \| `kit` \| `class` \| `workshop` | Touchpoint context across the Funobotz ecosystem | `home` |
-| `data-character`| Character ID (`wavy`, `quacky`, `petalo`, etc.) | Initial greeting character | `wavy` |
-| `data-lang` | `en` \| `ta` | Interface and dialogue language (English / Tamil) | `en` |
-| `data-theme` | Hex Color | Primary brand accent color | `#FFB13B` |
-| `data-position`| `right` \| `left` | Screen placement of floating avatar bubble | `right` |
-| `data-teacher` | `true` \| `false` | Enables 3rd "Teacher View" live monitoring tab | `false` |
-| `data-demo` | `true` \| `false` | Enables one-click benchmark profile chips (L-01…L-05) | `false` |
+| Sidebar setting | What it does |
+| :--- | :--- |
+| **Learner profile** | A benchmark profile (L-01…L-05) or a custom learner |
+| **Where is BotzBuddy?** | Context: learning platform (home), kit store product page, classroom, or school workshop |
+| **Kit page being viewed** | (Kit store) Greets with that kit's robot, e.g. Tiko on `tiko-scorpio` |
+| **About the learner** | Age 6–14, interests, experience, English/Tamil, short answers, deeper explanations, explorer mode |
+| **Answer general science questions** | On: age-adaptive science answers. Off: strict curriculum mode |
+
+The app has three tabs:
+
+- **💬 Learn** — the mission chat. Robot characters speak in turn; quick-reply buttons, a virtual parts workbench, the always-available *I already know this / I'm stuck / Change my interest* actions, **🤖 Meet the robots** switcher, and **📷 Photo check**. Free text goes in the chat box (questions or teach-backs).
+- **🧬 Learning Twin** — rank and XP journey, the five learning signals, mastery per concept, curiosity domains, confidence, misconceptions, and a log of *why* BotzBuddy made each decision.
+- **👩‍🏫 Teacher View** — live, anonymised table of every learner on the server with *Needs help* alerts, plus the Curiosity Jar insights.
 
 ---
 
-## 💻 4. Public JavaScript API (`window.BotzBuddy`)
-
-```javascript
-// Open / Close / Toggle widget panel
-window.BotzBuddy.open();
-window.BotzBuddy.close();
-window.BotzBuddy.toggle();
-
-// Dynamically set character or touchpoint context
-window.BotzBuddy.setCharacter('tiko');
-window.BotzBuddy.setContext('class');
-
-// Load synthetic benchmark learner profile (L-01 to L-05)
-window.BotzBuddy.loadProfile('L-04');
-
-// Reset session state
-window.BotzBuddy.reset();
-
-// Listen to custom store & classroom events
-window.BotzBuddy.on('kit', (kitData) => {
-  console.log('User viewed official Funobotz kit:', kitData);
-});
-```
-
----
-
-## 🗂️ Project Structure & REST API
+## 🗂️ 3. Project Structure
 
 ```text
-botzbuddy/            Python backend package
-  main.py             FastAPI app: REST routes, CORS, static files, session TTL, hot reload
+streamlit_app.py      Streamlit entry point
+botzbuddy/
+  ui.py               Streamlit UI: Learn, Learning Twin, Teacher View
+  service.py          Session store + create / chat / photo-check (shared by UI and API)
   brain.py            Adaptive brain: intents, routing, 5-stage mission engine
   twin.py             Learning Twin: mastery, XP ranks, signals, decision log
   classifier.py       3-tier question classifier (rules -> LLM -> keywords)
   explainer.py        Age-adaptive general-science explainer + lesson bridges
   analyzer.py         Teach-back analysis (LLM -> keyword fallback)
-  llm.py              OpenAI / Gemini / Groq clients (httpx, async) + Gemini Vision
-  registry.py         Characters, concepts, profiles loaded from data/
+  llm.py              OpenAI / Gemini / Groq clients (async httpx) + Gemini Vision
+  registry.py         Characters, concepts and profiles loaded from data/
   safety.py           Mains-electricity, privacy and unsafe-topic guard
   storage.py          Curiosity Jar (in-memory, optional MongoDB)
+  main.py             FastAPI REST API
 data/                 Character, concept and learner-profile JSON (hot-reloaded)
-public/plugin/        botzbuddy.js — the embeddable <script> widget
-public/demo/          Demo pages (home, kit store, classroom)
-tests/                pytest suite
+tests/                pytest suite: acceptance, API and UI (Streamlit AppTest)
+.streamlit/           Streamlit theme and server config
 ```
+
+---
+
+## 🔌 4. REST API (FastAPI)
 
 | Method | Path | Purpose |
 | :--- | :--- | :--- |
@@ -148,49 +104,39 @@ tests/                pytest suite
 | `POST` | `/api/photo-check` | Gemini Vision feedback on a photo of a paper build |
 | `POST` | `/api/admin/reload` | Force-reload the data registry |
 
+Example:
+
+```bash
+curl -X POST localhost:8000/api/session -H "Content-Type: application/json" \
+  -d '{"context": "home", "age": 9, "interests": ["light"], "generalStem": "on"}'
+```
+
 ---
 
 ## 🏛️ 5. System Architecture
 
 ```text
-+-----------------------------------------------------------------------------------------+
-|                         FUNOBOTZ ECOSYSTEM TOUCHPOINTS                                  |
-|   [Main Website (home.html)]   [Zoho Store (kit.html)]   [Workshop Portal (class.html)] |
-|                                             |                                           |
-|                   +-------------------------v-------------------------+                 |
-|                   |            BotzBuddy Single-File Plugin           |                 |
-|                   |   (Shadow DOM, Web Speech TTS/Mic, Teacher View)  |                 |
-|                   +-------------------------+-------------------------+                 |
-+---------------------------------------------|-------------------------------------------+
-                                              |  REST API (JSON)
-                                              v
-+-----------------------------------------------------------------------------------------+
-|                                BOTZBUDDY ADAPTIVE ENGINE                                |
-|                                                                                         |
-|   +---------------------------------------------------------------------------------+   |
-|   |                            Child Safety & Privacy Firewall                      |   |
-|   |   Mains AC safety (No wall sockets), Privacy (No PII), Child-friendly redirect  |   |
-|   +-----------------------------------------+---------------------------------------+   |
-|                                             |                                           |
-|   +-----------------------------------------v---------------------------------------+   |
-|   |                          Learning Twin Model (botzbuddy/twin.py)                   |   |
-|   |   Mastery Map (0-100), 4 Signals, XP Ranking Journey, Misconceptions Memory     |   |
-|   +-----------------------------------------+---------------------------------------+   |
-|                                             |                                           |
-|   +-----------------------------------------v---------------------------------------+   |
-|   |                           Adaptive Brain (botzbuddy/brain.py)                      |   |
-|   |   * Intent Detection (Stuck / Fast-Track / Switch / Unapproved Lore Guard)      |   |
-|   |   * Funobotz 5-Stage Mission Cycle:                                             |   |
-|   |     Build -> Experiment -> Observe -> Explain -> Create                         |   |
-|   |   * Multi-Factor Routing: Interest (+2), Concept (+15), Context (+5), Continuity|   |
-|   +----------------------------+--------------------------------+-------------------+   |
-|                                |                                |                       |
-|   +----------------------------v----+              +------------v-------------------+   |
-|   |      Talker Chain (llm.py)      |              | Teach-Back Analyzer (analyzer) |   |
-|   |      Gemini -> Groq -> Draft    |              | Groq -> Gemini -> Keyword Rule |   |
-|   |      Strict Grounding Check     |              | Misconception & Key Idea Score |   |
-|   +---------------------------------+              +--------------------------------+   |
-+-----------------------------------------------------------------------------------------+
+   Streamlit app (ui.py)                    Other apps
+   Learn · Learning Twin · Teacher View     (REST clients)
+              |                                  |
+              |                        FastAPI REST API (main.py)
+              |                                  |
+              +--------------> service.py <------+
+                        (session store, photo check)
+                                  |
+   +------------------------------v-------------------------------+
+   |                 BOTZBUDDY ADAPTIVE ENGINE                    |
+   |  safety.py   Child safety & privacy firewall                 |
+   |  twin.py     Learning Twin: mastery 0-100, signals, XP ranks |
+   |  brain.py    Intents (stuck / fast-track / switch / lore     |
+   |              guard) + Build -> Experiment -> Observe ->      |
+   |              Explain -> Create, multi-factor robot routing   |
+   |  classifier.py + explainer.py   3-tier questions, age bands  |
+   |  analyzer.py Teach-back: key ideas + misconceptions          |
+   |  llm.py      Talker: Gemini -> OpenAI -> Groq -> draft       |
+   |              (strict grounding check)                        |
+   |  registry.py data/*.json   storage.py Curiosity Jar          |
+   +--------------------------------------------------------------+
 ```
 
 ---
@@ -200,14 +146,14 @@ tests/                pytest suite
 ### The Funobotz 5-Stage Mission Cycle:
 1. **🔨 BUILD**: Eco-friendly paper craft template folding & component assembly (or virtual parts sequence).
 2. **🧪 EXPERIMENT**: Prediction inquiry (*"What do you think happens when...?"*).
-3. **👀 OBSERVE**: Cause-and-effect inspection with 3 tap options.
+3. **👀 OBSERVE**: Cause-and-effect inspection with 3 options.
 4. **💡 EXPLAIN**: Child teaches back in their own words (analyzed for key ideas and misconceptions).
 5. **🎨 CREATE**: Art + Engineering design challenge with 4 choices. Displays **Kit Card** (in `home`/`kit` contexts) or **"Show your teacher"** card (in `class`/`workshop` contexts).
 
 ### 4-Signal Multi-Modal Learning:
 - 🗣️ **SAYS**: Typed or voice spoken inquiries.
 - 👆 **CHOOSES**: Quick replies, prediction options, and creative choices.
-- 🔨 **BUILDS**: Hands-on completion confirmations and virtual assembly tap sequences.
+- 🔨 **BUILDS**: Hands-on completion confirmations and virtual parts assembly.
 - 💡 **EXPLAINS**: Free-form teach-back conceptual explanations.
 
 ### Mastery & Ranking Rules (Prototype Values):
@@ -224,8 +170,8 @@ tests/                pytest suite
 
 ## 👩‍🏫 7. Teacher View (Live Classroom Monitor)
 
-When embedded on class and workshop pages with `data-teacher="true"`, BotzBuddy activates a dedicated **"👩‍🏫 Teacher View"** tab:
-- Polls `/api/teacher/sessions?context=class` every 5 seconds.
+The **"👩‍🏫 Teacher View"** tab of the Streamlit app monitors every learner connected to the server (also available as `GET /api/teacher/sessions?context=class`):
+- Refreshes automatically every 5 seconds and can be filtered by context (classroom, workshop, home, kit store).
 - Displays an anonymized real-time student table:
   * **Learner Label**: (`Learner 1`, `Learner 2`, etc. — zero student names or PII stored).
   * **Current Concept & Robot Friend**.
@@ -265,15 +211,15 @@ When embedded on class and workshop pages with `data-teacher="true"`, BotzBuddy 
 
 - **L-01 (Age 8, Light/Colors)**: First-time learner → Routes to **Petalo 🌸**, selects `light_everyday`, uses story-like young explanations.
 - **L-02 (Age 11, Movement/Machines)**: Knows battery connections → Routes to **Quacky 🦆**, builds on `motor_motion`.
-- **L-03 (Age 9, Stories/Characters)**: Short mode active → Generates punchy <=2 sentence explanations with high tap interactivity.
+- **L-03 (Age 9, Stories/Characters)**: Short mode active → Generates punchy <=2 sentence explanations with lots of quick-reply choices.
 - **L-04 (Age 12, Electronics)**: Already mastered `simple_circuit` (80%+) → Skips basics, routes to **Tolly 🚦** with deep physics explanations on timing intervals and LED sequencing.
-- **L-05 (Age 10, Explorer)**: Open curiosity → **Wavy 👋** initiates open discovery dialogue with tap options.
+- **L-05 (Age 10, Explorer)**: Open curiosity → **Wavy 👋** initiates open discovery dialogue with quick-reply options.
 
 ---
 
 ## 🔄 11. Hot-Reloading & Adding New Characters
 
-To add a new Funobotz character or concept sheet, simply drop a JSON file into `data/characters/new_bot.json`. The server checks `data/` every second and reloads the live registry automatically with zero restarts or code changes. You can also call `POST /api/admin/reload`.
+To add a new Funobotz character or concept sheet, simply drop a JSON file into `data/characters/new_bot.json`. Both the Streamlit app and the API notice changes in `data/` and reload the live registry automatically, with zero restarts or code changes. You can also call `POST /api/admin/reload`.
 
 ---
 
@@ -285,15 +231,13 @@ To add a new Funobotz character or concept sheet, simply drop a JSON file into `
 
 ---
 
----
-
 ## 🌟 13. Innovations (Breakthrough Adaptive Learning Features)
 
 BotzBuddy incorporates 7 pedagogical innovations tailored specifically for Funobotz paper robotics:
 
 ### 🤝 Innovation 1: Character Team-Up (Cross-Character Concept Synthesis)
 * **Why it helps learning:** In robotics, the same fundamental concept (e.g. electric motors or closed circuits) produces completely different physical actions depending on mechanical linkages and origami folds. Character Team-Up shows the child that the same law of science powers diverse robots, building deep transferrable mental models instead of rote kit-specific memorization.
-* **How to use it:** When studying a concept taught by 2 or more verified characters (e.g. `motor_motion` taught by Quacky & Tiko, or `simple_circuit` taught by Quacky, Tolly & Tiko), tap the **"🤝 Team-Up!"** quick reply. Both robots appear side-by-side with a dual animation, each sharing how the concept manifests in their build using only approved facts. The child is prompted: *"What's the same in both of our robots?"*, analyzing their comparative teach-back for bonus mastery.
+* **How to use it:** When studying a concept taught by 2 or more verified characters (e.g. `motor_motion` taught by Quacky & Tiko, or `simple_circuit` taught by Quacky, Tolly & Tiko), tap the **"🤝 Team-Up!"** quick reply. Both robots appear together, each sharing how the concept manifests in their build using only approved facts. The child is prompted: *"What's the same in both of our robots?"*, analyzing their comparative teach-back for bonus mastery.
 
 ### 🏺 Innovation 2: Curiosity Jar (Turning Unsupported Questions into R&D Insights)
 * **Why it helps learning:** Children are naturally curious and often ask questions outside the robot's current approved concept sheets (e.g., *"What is Cuby's favourite food?"* or *"How do drones fly?"*). Instead of hallucinating fiction, BotzBuddy honestly refuses, praises their curiosity, and drops the question into the **Curiosity Jar**.
@@ -310,7 +254,7 @@ BotzBuddy incorporates 7 pedagogical innovations tailored specifically for Funob
 
 ### 🖨️ Innovation 4: Printable STEM Challenge Cards (Back to Hands-On Paper Building)
 * **Why it helps learning:** Screen time should ignite real-world tactile making. Funobotz kits (especially Petalo) utilize physical challenge cards. At the end of every mission, BotzBuddy generates a personalized, beautifully formatted A6 paper-craft challenge card connecting their digital lesson directly to a hands-on crafting task.
-* **How to use it:** Upon completing the Create stage, tap **"🖨️ Print My Challenge Card"**. This opens a clean, printable popup window formatted with A6 paper styling (`@page { size: A6; margin: 8mm; }`), step-by-step assembly steps, an electrical safety tip (*"Use only small batteries, never wall sockets!"*), and the child's earned rank badge. Contains zero personal data.
+* **How to use it:** Upon completing the Create stage, click **"🖨️ Download printable card"**. This downloads a printable card formatted with A6 paper styling (`@page { size: A6; margin: 8mm; }`), step-by-step assembly steps, an electrical safety tip (*"Use only small batteries, never wall sockets!"*), and the child's earned rank badge. Contains zero personal data.
 
 ### ✨ Innovation 5: Memory Boost (Spaced Revisit for Long-Term Retention)
 * **Why it helps learning:** Ebbinghaus's forgetting curve shows that newly acquired STEM concepts decay without spaced repetition. Memory Boost automatically identifies concepts with developing mastery (`40–75%`) or *"Correct + Not sure"* answers and revisits them at optimal spaced intervals.
@@ -318,7 +262,7 @@ BotzBuddy incorporates 7 pedagogical innovations tailored specifically for Funob
 
 ### 📷 Innovation 6: Photo Check of Paper Builds (Gemini Vision)
 * **Why it helps learning:** Allows children to show their real, physical paper origami creations and circuit tape layouts to their robot companion for visual encouragement and validation.
-* **How to use it:** During the **Build** and **Create** steps, tap the **📷 Photo Check** button in the chat footer to upload a photo (JPEG/PNG/WebP, max 3 MB). BotzBuddy automatically resizes the image client-side to max 1024px using HTML5 Canvas and calls Google Gemini Vision to evaluate the build against approved key ideas. Returns two encouraging sentences with one thing done well and one thing to check. Zero image data is persisted. If no API key is set, fails gracefully with an encouraging prompt.
+* **How to use it:** During the **Build** and **Create** steps, open **📷 Photo check of my paper build** under the chat and upload a photo (JPEG/PNG/WebP, max 8 MB). BotzBuddy calls Google Gemini Vision to evaluate the build against approved key ideas. Returns two encouraging sentences with one thing done well and one thing to check. Zero image data is persisted. If no API key is set, fails gracefully with an encouraging prompt.
 
 ### 🍃 Innovation 7: Optional MongoDB Persistence
 * **Why it helps learning:** Enables multi-session persistence across classroom tablets and home devices while maintaining 100% server operability in-memory without any database dependencies.
@@ -336,32 +280,20 @@ BotzBuddy incorporates 7 pedagogical innovations tailored specifically for Funob
      - `middle` (ages 9–11): 2–3 sentences, step-by-step physical mechanism.
      - `senior` (ages 12–14): 3–4 sentences, real science terms (pH, photons, scattering, oxidation).
   3. **Bridge to Approved Lessons:** Every general science answer connects to an approved Funobotz character (e.g., curd bacteria → Petalo's nature & light / Quacky's energy).
-  4. **Strict Classroom Mode:** Set `data-general-stem="off"` or `.env` `GENERAL_STEM_MODE=off` to keep classroom workshops laser-focused on curriculum kits!
-  5. **Resilient Provider Chain:** `OpenAI (gpt-4o-mini)` → `Gemini (gemini-2.5-flash)` → `Groq (qwen/qwen3.8-27b)` → Deterministic Fallback Template.
+  4. **Strict Classroom Mode:** Turn off **"Answer general science questions"** in the sidebar (off by default for Classroom and Workshop) or set `GENERAL_STEM_MODE=off` in `.env` to keep classroom workshops laser-focused on curriculum kits!
+  5. **Resilient Provider Chain:** `OpenAI (gpt-4o-mini)` → `Gemini (GEMINI_MODEL)` → `Groq (GROQ_MODEL)` → Deterministic Fallback Template.
 
 ---
 
-## ⏱️ 14. 1-Minute Hackathon Demo Script
+---
 
-Here is the exact 60-second pitch and demonstration flow:
+## ⏱️ 14. 1-Minute Demo Script
 
-1. **The Age-Adaptive Explainer (30s):**
-   - Open [http://localhost:3000/demo/home.html](http://localhost:3000/demo/home.html) with BotzBuddy open.
-   - Set child age to **7** (or pick L-01 chip). Ask: *"Why does milk turn into curd?"*
-     → **Answer:** *"Good, friendly little bacteria cuddle in warm milk and turn it into thick, yummy curd like magic! Just like Petalo loves sunny warmth, bacteria need the right warmth to grow."* + Bridge button to Petalo 🌸!
-   - Now switch learner profile to **Senior (Age 13 / L-04)**. Ask the exact same question: *"Why does milk turn into curd?"*
-     → **Answer:** *"Lactobacillus bacteria ferment lactose sugar into lactic acid, lowering the milk's pH and causing casein proteins to coagulate into solid curd."*
-2. **Strict Classroom Guardrail (15s):**
-   - Open [http://localhost:3000/demo/class.html](http://localhost:3000/demo/class.html) (`data-general-stem="off"`).
-   - Ask the same curd question in class.
-     → **Response:** *"Great science question! In our workshop today, we're focusing on our robot kits. I've dropped your question into the Curiosity Jar so you can explore it after class!"*
-3. **Character Team-Up & Learning Twin (15s):**
-   - Tap **"🤝 Team-Up!"** on `motor_motion` → Quacky 🦆 and Tiko 🦂 collaborate.
-   - Switch to **"Learning Twin"** tab → Show live 5-signal radar (mastery, style, pace, confidence, curiosity domains).
+1. **Age-adaptive explainer (30s):** start a session with profile **L-01** (age 8) and ask *"Why does milk turn into curd?"* in the chat. Then start a new session with **L-04** (age 12) and ask the same question — the answer moves from a playful analogy to lactic-acid bacteria and protein coagulation, and both bridge back to a Funobotz robot. (Needs an OpenAI, Gemini or Groq key.)
+2. **Strict classroom guardrail (15s):** set *Where is BotzBuddy?* to **Classroom** (general science turns off), start, and ask the same question → it is saved to the Curiosity Jar and bridged back to today's lesson.
+3. **Team-Up & Learning Twin (15s):** open **🤖 Meet the robots → Quacky**, finish the build and pick an observation, then tap **🤝 Team-Up!** → Quacky 🦆 and Tiko 🦂 compare how the same circuit powers both robots. Switch to **🧬 Learning Twin** and **👩‍🏫 Teacher View** to show the live data.
 
 ---
 
 ## 📜 15. License & Acknowledgments
 Built for the **Funobotz Hackathon**. All character concepts, product assets, and official facts copyright **Funobotz Paper Robotics Pvt. Ltd.**
-
-

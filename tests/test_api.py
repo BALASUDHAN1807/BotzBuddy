@@ -1,4 +1,4 @@
-"""HTTP-level tests for the FastAPI app, using the same payloads the browser plugin sends."""
+"""HTTP-level tests for the FastAPI REST API."""
 
 from fastapi.testclient import TestClient
 
@@ -20,19 +20,17 @@ def test_registry_endpoints():
     assert any(p["id"] == "L-01" for p in client.get("/api/profiles").json())
 
 
-def test_static_plugin_and_demo_served():
-    assert client.get("/plugin/botzbuddy.js").status_code == 200
-    assert client.get("/demo/").status_code == 200
+def test_root_redirects_to_docs():
     r = client.get("/", follow_redirects=False)
-    assert r.status_code in (302, 307) and r.headers["location"] == "/demo/"
+    assert r.status_code in (302, 307) and r.headers["location"] == "/docs"
 
 
-def test_session_and_full_chat_flow_via_plugin_payloads():
+def test_session_and_full_chat_flow_via_quick_replies():
     s = client.post("/api/session", json={"context": "home", "generalStem": "on", "age": 9, "interests": ["light"]}).json()
     sid = s["sessionId"]
     assert s["state"]["stage"] == "build"
 
-    # Quick-reply chip, sent exactly as the plugin does: action = the chip object itself
+    # A quick-reply object is sent back as the action
     chip = next(q for q in s["quickReplies"] if q["value"] == "build_done")
     r = client.post("/api/chat", json={"sessionId": sid, "text": chip["label"], "action": chip}).json()
     assert r["state"]["stage"] == "experiment"
